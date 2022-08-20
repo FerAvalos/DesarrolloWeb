@@ -1,0 +1,34 @@
+/*Selector*/
+html {
+    /*Propery:Value*/
+    text-align: left;
+    color: burlywood;
+    /* background-color: black; */
+}
+
+/* Universal */
+* {
+    background-color: aliceblue;
+}
+
+.class {
+    border-radius: 40px;
+    box-shadow: 0 2px 5px red;
+    height: 100px;
+    width: 100px;
+    margin: 15px 20px 10px;
+    color: chartreuse;
+} 
+
+#paragraph {
+    color: blue;
+}
+
+div p {
+    font-size: 30px;
+}
+
+div h2, div h3 {
+    font-weight: 700;
+    color: black;
+}
