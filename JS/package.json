@@ -1,0 +1,11 @@
+{
+    "name": "jsintro",
+    "description": "Introducción a JS6",
+    "authors": "Fer",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        
+    },
+    "dependencies": {}
+}
