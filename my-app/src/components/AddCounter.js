@@ -1,7 +1,20 @@
 import React from 'react'
+import propTypes from 'prop-types'
 
-export const AddCounter = () => {
+/* const onAddPress= () => {
+  console.log('Hello')
+} */
+
+export const AddCounter = ({onAddPress}) => {
   return (
-    <button type="submit">Enviar</button>
+    <button 
+    //onClick={(e) => onAddPress(e,'hola)}
+    onClick={onAddPress}>
+      +1
+    </button>
   )
+}
+
+AddCounter.propTypes = {
+  onAddPress: propTypes.func.isRequired 
 }
