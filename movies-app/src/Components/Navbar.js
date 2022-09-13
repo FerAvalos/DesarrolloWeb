@@ -1,22 +1,26 @@
 import React from 'react'
+import {Link, NavLink, useNavigate} from 'react-router-dom'
 
 export const Navbar = () => {
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    navigate('/Login', {replace:true})
+  }
   return (
     <>
         <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
+          <Link className='navbar-brand' to='/'>MovieApp</Link>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
-                <a class="nav-link disabled">Disabled</a>
+                <Link className='nav-link' to='/Home'>Home</Link>
+                <Link className='nav-link' to='/Top10'>Top10</Link>
+                <Link className='nav-link' to='/Trending'>Trending</Link>
             </div>
             </div>
+            <ul className='navbar-collapse justify-content-end'>
+              <Link className='nav-link' to='/Login' onClick={handleLogout}>Logout</Link>
+            </ul>
         </div>
         </nav>
     </>
