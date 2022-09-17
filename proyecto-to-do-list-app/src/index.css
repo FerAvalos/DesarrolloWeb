@@ -41,7 +41,7 @@
 .button_delete {
   background-color: #555555;
   color: #ececec;
-  margin: 10px;
+  margin: 10px 0px;
   transition-duration: 0.4s;
 }
 
@@ -50,4 +50,11 @@
   color: black;
 }
 
+.Nuevo_elemento_txt {
+  display: inline;
+}
+
+.Elementos_lista {
+  margin: 10px;
+}
 
