@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { Form } from './Form'
+import { Searchbar } from './Searchbar'
 import { TaskList } from './TaskList'
-import{Searchbar} from './Searchbar'
+
 
 export const Container = () => {
     const [list, setList] = useState([]) //List almacena los datos
-    const [name, setName] = useState([])
+    
     const handleAddItem = addItem => { //Actualiza el estado de list
         setList([...list, addItem]) //List se expande
     }
+    //const list_search = {...list}
   return (
     <div className='Contenedor'>
         <div className='Titulo'>
@@ -16,7 +18,8 @@ export const Container = () => {
         </div>
         <Form handleAddItem={handleAddItem}/> {/* Actualizar el estado list */}
         <TaskList list={list} setList={setList}/>
-        <Searchbar list={name} setList={setName}/>
+        <Searchbar list_search={list}/>
+        
     </div>
   )
 }

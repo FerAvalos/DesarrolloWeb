@@ -5,7 +5,6 @@ export const Form = (props) => {
     const [descripcion, agregarDescripcion] = useState("");
     const handleSubmit = e => {
         e.preventDefault() //Evitar que se refresque la página
-        console.log(descripcion)
         handleAddItem({ /* Recibe de props el método al que mandamos el nuevo registro */
             done:false,
             id: (+new Date()).toString(),
