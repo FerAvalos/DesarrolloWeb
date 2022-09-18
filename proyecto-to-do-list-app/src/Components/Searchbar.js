@@ -1,54 +1,55 @@
-import React from "react";
+import React, { useState } from 'react'
 
+export const Searchbar = (props) => {
+    const {list_search} = props
+  // the value of the search field 
+    const [descripcion, setName] = useState('');
 
-const Searchbar = props => {
-  // (C)
+    // the search result
+    const [foundTasks, setFoundTasks] = useState(list_search);
   
-  const [name, setName] = useState('');
-
-  // the search result
-  const [foundUsers, setFoundUsers] = useState(list);
+    const filter = (e) => {
+      const keyword = e.target.value;
+  
+      if (keyword !== '') {
+        const results = list_search.filter((item) => {
+          return item.descripcion.toLowerCase().startsWith(keyword.toLowerCase());
+          // Use the toLowerCase() method to make it case-insensitive
+        });
+        setFoundTasks(results);
+      } else {
+        setFoundTasks(list_search);
+        // If the text field is empty, show all users
+      }  
+      setName(keyword);
+    };
+  
   
 
-  const filter = (e) => {
-    const keyword = e.target.value;
-
-    if (keyword !== '') {
-      const results = list.filter((user) => {
-        return user.name.toLowerCase().startsWith(keyword.toLowerCase());
-        // Use the toLowerCase() method to make it case-insensitive
-      });
-      setFoundUsers(results);
-    } else {
-      setFoundUsers(list);
-      // If the text field is empty, show all users
-    }
-    setName(keyword);
-  };
   return (
-    <div className="container">
-      <input
-        type="search"
-        value={name}
-        onChange={filter}
-        className="input"
-        placeholder="Filter"
-      />
-
+    <>
+      <form> 
+      {/* Cuando da enter o imput se debe ejeuctar el método handleSubmit */}
+          <div className="search-list">
+            <input
+              type="search"
+              className="busqueda"
+              value={descripcion} //Asignar descripción a input
+              onChange={filter}
+            />
+        </div>
+      </form>
       <div className="user-list">
-        {foundUsers && foundUsers.length > 0 ? (
-          foundUsers.map((user) => (
-            <li key={user.id} className="user">
-              
-              <span className="user-name">{item}</span>
-              
+        {foundTasks && foundTasks.length > 0 ? (
+          foundTasks.map((item) => (
+            <li key={item.id} className="user">
+              <span className="user-id">{item.descripcion}</span>
             </li>
           ))
         ) : (
           <h1>No results found!</h1>
         )}
-      </div>
     </div>
-  );
-};
-export default Searchbar;
+  </>
+  )
+}
