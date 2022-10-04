@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar } from '../Components/Navbar'
 import {Route, Routes} from 'react-router-dom'
-import {Trending, Home, Top10, Login} from '../Pages'
+import {Trending, Home, Top10, Login, Movie} from '../Pages'
 
 export const MovieRoutes = () => {
   return (
@@ -12,7 +12,7 @@ export const MovieRoutes = () => {
             <Route path='/Trending' element={<Trending/>}/>
             <Route path='/Top10' element={<Top10/>}/>
             <Route path='/Login' element={<Login/>}/>
-            <Route path='/*' element={<Home/>}/>
+            <Route path='/movie/:movieId' element={<Movie/>}/>
         </Routes>
     </>
   )
