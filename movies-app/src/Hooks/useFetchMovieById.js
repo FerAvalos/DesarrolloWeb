@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react"
-import { getTrending } from "../Helpers/getTrending";
+import { getMovieById } from "../Helpers/getMovieById";
 
-export const useFetchMovieById = () => {
-    const [movies, setMovies] = useState();
-    const [itsLoading, setIsLoading] = useState(true); //Está cargando
-    const getMovie = async (movieId, lenguage) => {
-        const results = await getMovieById(movieId)
-        setMovies(results)
-        setIsLoading(false)
-    }
-    useEffect(() => {
-        getMovie(movieId)
-    }, [])
+export const useFetchMovieById = (movieId) => {
+  const [movie, setMovie] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
-    return {
-        movies,
-        itsLoading
-    }
+  const getMovie = async (movieId, language) => {
+    const result = await getMovieById(movieId);
+    setMovie(result);
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    getMovie(movieId);
+  }, []);
+  
+  return {
+    movie,
+    isLoading
+  }
 }

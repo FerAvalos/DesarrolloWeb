@@ -1,19 +1,19 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import { Navbar } from '../Components/Navbar'
-import {Route, Routes} from 'react-router-dom'
-import {Trending, Home, Top10, Login, Movie} from '../Pages'
+import { Trending, Home, Top10, Login, Movie } from '../Pages'
 
 export const MovieRoutes = () => {
   return (
     <>
-        <Navbar/>
-        <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/Trending' element={<Trending/>}/>
-            <Route path='/Top10' element={<Top10/>}/>
-            <Route path='/Login' element={<Login/>}/>
-            <Route path='/movie/:movieId' element={<Movie/>}/>
-        </Routes>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/trending' element={<Trending />} />
+        <Route path='/top10' element={<Top10 />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/movie/:movieId' element={<Movie />} />
+      </Routes>
     </>
   )
 }
